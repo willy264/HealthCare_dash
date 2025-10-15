@@ -33,10 +33,12 @@ export interface LabResult {
   downloadUrl: string;
 }
 
-export interface PatientData {
+export interface PatientRecord {
   patient: Patient;
   bloodPressure: BloodPressureData[];
   vitalSigns: VitalSignsHistory[];
   diagnoses: DiagnosisList[];
   labResults: LabResult[];
 }
+
+export type PatientData = PatientRecord[];
