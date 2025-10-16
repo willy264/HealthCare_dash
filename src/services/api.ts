@@ -1,4 +1,4 @@
-import type { PatientData } from '../types';
+import type { PatientRecord } from '../types';
 
 const API_URL = 'https://fedskillstest.coalitiontechnologies.workers.dev/';
 
@@ -7,7 +7,7 @@ const username = 'coalition';
 const password = 'skills-test';
 const credentials = btoa(`${username}:${password}`);
 
-export const fetchPatientData = async (): Promise<PatientData> => {
+export const fetchPatientData = async (): Promise<PatientRecord[]> => {
   try {
     const response = await fetch(API_URL, {
       method: 'GET',
