@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Header from "./components/layout/Header";
+import "./App.css";
 import type { PatientRecord } from "./types";
 import { fetchPatientData } from "./services/api";
-
+import Header from "./components/layout/Header";
+import PatientsList from "./components/patient/PatientsList";
 
 function App() {
   const [patientsData, setPatientsData] = useState<PatientRecord[]>([]);
@@ -68,9 +69,21 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F6F6F6]">
+    <div className="min-h-screen bg-[#F6F6F6] space-y-6 px-4 sm:px-6 lg:px-8 py-6">
       <Header />
+      <main className="mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-4 lg:gap-8">
+          <div className="md:col-span-3 lg:col-span-3">
+            <PatientsList
+              patients={patientsData}
+              selectedPatient={selectedPatient!}
+              onSelectPatient={setSelectedPatient}
+            />
+          </div>
 
+
+        </div>
+      </main>
     </div>
   );
 }
