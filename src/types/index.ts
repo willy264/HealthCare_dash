@@ -35,7 +35,20 @@ export interface DiagnosisHistory {
     levels: string 
   };
 }
-
+export interface DiagnosisHistoryItem { 
+  respiratory_rate: { 
+    value: number; 
+    levels: string 
+  };
+  temperature: { 
+    value: number; 
+    levels: string 
+  };
+  heart_rate: { 
+    value: number; 
+    levels: string 
+  };
+}
 export interface DiagnosisListItem {
   name: string;
   description: string;
