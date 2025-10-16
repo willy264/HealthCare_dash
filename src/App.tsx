@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import Header from "./components/layout/Header";
-import PatientInfo from "./components/patient/PatientInfo";
-import BloodPressureChart from "./components/patient/BloodPressureChart";
-import VitalSigns from "./components/patient/VitalSigns";
 import type { PatientRecord } from "./types";
 import { fetchPatientData } from "./services/api";
-// import DiagnosticList from "./components/patient/DiagnosticList";
-// import LabResults from "./components/patient/LabResults";
-// import PatientsList from "./components/patient/PatientsList";
+
 
 function App() {
   const [patientsData, setPatientsData] = useState<PatientRecord[]>([]);
@@ -75,11 +70,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#F6F6F6]">
       <Header />
-      <main className="mx-auto px-8 py-8">
-        <div className="grid grid-cols-12 gap-8">
 
-        </div>
-      </main>
     </div>
   );
 }
