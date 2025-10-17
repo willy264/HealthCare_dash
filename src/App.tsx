@@ -34,7 +34,6 @@ function App() {
         );
         setSelectedPatient(jessicaTaylor || allPatientsData[0] || null);
         console.log(patientsData);
-        
       } catch (err) {
         console.error("Error details:", err);
         setError(
@@ -49,10 +48,10 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#F6F6F6] flex flex-col min-h-screen">
-      <div className="px-4 sm:px-6 lg:px-8 py-6 flex-1">
+    <div className="bg-[#F6F6F6] min-h-screen overflow-x-hidden">
+      <div className="px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-4">
         <Header />
-        <main className="mx-auto mt-6">
+        <main className="mx-auto mt-4 sm:mt-6">
           {loading && (
             <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex items-center justify-center z-50">
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -72,8 +71,9 @@ function App() {
               </button>
             </div>
           )}
-          <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-12 lg:col-span-3">
+          <div className="grid grid-cols-12 gap-4 xl:gap-6">
+            {/* Patients List - Full width on mobile, side column on desktop */}
+            <div className="col-span-12 lg:col-span-3 order-1">
               <PatientsList
                 patients={patientsData}
                 selectedPatient={
@@ -83,7 +83,25 @@ function App() {
               />
             </div>
 
-            <div className="col-span-12 lg:col-span-6 space-y-6">
+            {/* Patient Info and Lab Results - Full width on mobile, side column on desktop */}
+            <div className="col-span-12 lg:col-span-3 space-y-6 order-2 lg:order-3">
+              <PatientInfo
+                patient={{
+                  name: selectedPatient?.name || "No Patient Selected",
+                  profile_picture: selectedPatient?.profile_picture || "",
+                  age: selectedPatient?.age || 0,
+                  gender: selectedPatient?.gender || "",
+                  date_of_birth: selectedPatient?.date_of_birth || "",
+                  phone_number: selectedPatient?.phone_number || "",
+                  emergency_contact: selectedPatient?.emergency_contact || "",
+                  insurance_type: selectedPatient?.insurance_type || "",
+                }}
+              />
+              <LabResults labResults={selectedPatient?.lab_results || []} />
+            </div>
+
+            {/* Charts and Diagnostic List - Full width on mobile, center column on desktop */}
+            <div className="col-span-12 lg:col-span-6 space-y-6 order-3 lg:order-2">
               <div className="bg-white rounded-2xl p-6">
                 <BloodPressureChart
                   diagnosisHistory={selectedPatient?.diagnosis_history || []}
@@ -103,22 +121,6 @@ function App() {
               <DiagnosticList
                 diagnosticList={selectedPatient?.diagnostic_list || []}
               />
-            </div>
-
-            <div className="col-span-12 lg:col-span-3 space-y-6">
-              <PatientInfo
-                patient={{
-                  name: selectedPatient?.name || "No Patient Selected",
-                  profile_picture: selectedPatient?.profile_picture || "",
-                  age: selectedPatient?.age || 0,
-                  gender: selectedPatient?.gender || "",
-                  date_of_birth: selectedPatient?.date_of_birth || "",
-                  phone_number: selectedPatient?.phone_number || "",
-                  emergency_contact: selectedPatient?.emergency_contact || "",
-                  insurance_type: selectedPatient?.insurance_type || "",
-                }}
-              />
-              <LabResults labResults={selectedPatient?.lab_results || []} />
             </div>
           </div>
         </main>

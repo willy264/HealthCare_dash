@@ -9,9 +9,9 @@ interface VitalSignsProps {
 
 const VitalSigns = ({ latestVitals }: VitalSignsProps) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {/* respiratory rate */}
-      <div className="bg-[#E0F3FA] rounded-xl p-4">
+      <div className="bg-[#E0F3FA] rounded-xl p-3 sm:p-4">
         <div className="mb-3">
           <div className="rounded-full flex items-center justify-start">
             <img

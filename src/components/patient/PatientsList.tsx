@@ -13,11 +13,10 @@ const PatientsList = ({
   onSelectPatient,
 }: PatientsListProps) => {
   return (
-    // h-[calc(100vh-180px)] md:h-[calc(100vh-140px)]
-    <div className="bg-white rounded-2xl  flex flex-col h-[calc(100vh-40px)]">
+    <div className="bg-white rounded-2xl flex flex-col h-[400px] md:h-[500px] lg:h-[1100px] relative">
       {/* header */}
-      <div className="flex items-center justify-between mb-6 p-5">
-        <h2 className="text-[#072635] font-extrabold text-2xl leading-[33px]">
+      <div className="flex items-center justify-between mb-4 sm:mb-6 p-4 sm:p-5">
+        <h2 className="text-[#072635] font-extrabold text-xl sm:text-2xl leading-[33px]">
           Patients
         </h2>
         <button

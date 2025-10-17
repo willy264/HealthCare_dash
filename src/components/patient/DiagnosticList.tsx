@@ -6,7 +6,7 @@ interface DiagnosticListProps {
 
 const DiagnosticList = ({ diagnosticList }: DiagnosticListProps) => {
   return (
-    <div className="bg-white rounded-2xl p-5">
+    <div className="bg-white rounded-2xl p-5 h-[380px] relative flex flex-col">
       <h2 className="text-[#072635] font-extrabold text-2xl leading-[33px] mb-10">
         Diagnostic List
       </h2>

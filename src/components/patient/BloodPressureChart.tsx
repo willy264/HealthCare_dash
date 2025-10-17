@@ -135,7 +135,7 @@ const BloodPressureChart = ({
           </div>
 
           {/* readings */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-5 justify-start">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col flex-wrap gap-5 justify-start">
             {/* systolic */}
             <div className="lg:border-b lg:border-[#CBC8D4] pb-5">
               <div className="flex items-center gap-2 mb-2">
