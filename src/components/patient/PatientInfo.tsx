@@ -30,11 +30,11 @@ const PatientInfo = ({ patient }: PatientInfoProps) => {
   return (
     <div className="bg-white rounded-2xl p-4 sm:p-5 relative overflow-y-auto ">
       {/* profile header */}
-      <div className="flex flex-col items-center mb-6 sm:mb-8">
+      <div className="flex flex-col items-center mb-4 sm:mb-8">
         <img
           src={patient.profile_picture || "https://via.placeholder.com/200"}
           alt={patient.name}
-          className="w-[200px] h-[200px] rounded-full object-cover mb-6"
+          className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] rounded-full object-cover mb-4 sm:mb-6"
           onError={(e) => {
             e.currentTarget.src = "https://via.placeholder.com/200";
           }}
@@ -45,7 +45,7 @@ const PatientInfo = ({ patient }: PatientInfoProps) => {
       </div>
 
       {/* patient details */}
-      <div className="space-y-10">
+      <div className="space-y-5 flex lg:flex-col gap-8 flex-wrap">
         {/* date of birth */}
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-[#F6F6F6] flex items-center justify-center flex-shrink-0">
@@ -109,7 +109,7 @@ const PatientInfo = ({ patient }: PatientInfoProps) => {
           <div className="w-10 h-10 rounded-full bg-[#F6F6F6] flex items-center justify-center flex-shrink-0">
             <Shield className="w-5 h-5 text-[#072635]" />
           </div>
-          <div className="flex-1">
+          <div className="flex-1=">
             <p className="text-[#072635] text-sm leading-[19px] mb-1">
               Insurance Provider
             </p>

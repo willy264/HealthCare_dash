@@ -113,17 +113,19 @@ const BloodPressureChart = ({
 
   return (
     <div className="">
-      <h2 className="text-[#072635] font-extrabold text-2xl mb-10">
+      <h2 className="text-[#072635] font-extrabold text-xl sm:text-2xl mb-4 sm:mb-10">
         Diagnosis History
       </h2>
 
-      <div className="bg-[#F4F0FE] rounded-xl p-4">
+      <div className="bg-[#F4F0FE] rounded-xl p-3 sm:p-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* chart */}
           <div className="lg:col-span-8">
             {/* header */}
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-[#072635] font-bold text-lg">Blood Pressure</h3>
+              <h3 className="text-[#072635] font-bold text-lg">
+                Blood Pressure
+              </h3>
               <div className="flex items-center gap-2">
                 <span className="text-[#072635] text-sm">Last 6 months</span>
                 <ChevronDown className="w-4 h-4 text-[#072635]" />
@@ -135,7 +137,7 @@ const BloodPressureChart = ({
           </div>
 
           {/* readings */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col flex-wrap gap-5 justify-start">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-5 justify-start">
             {/* systolic */}
             <div className="lg:border-b lg:border-[#CBC8D4] pb-5">
               <div className="flex items-center gap-2 mb-2">

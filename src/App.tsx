@@ -48,10 +48,10 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#F6F6F6] min-h-screen overflow-x-hidden">
-      <div className="px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-4">
+    <div className="bg-[#F6F6F6] relative overflow-hidden">
+      <div className="px-2 sm:px-3 lg:px-4 xl:px-8 py-2 sm:py-4">
         <Header />
-        <main className="mx-auto mt-4 sm:mt-6">
+        <main className="mx-auto mt-3 sm:mt-6 relative">
           {loading && (
             <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex items-center justify-center z-50">
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -60,7 +60,7 @@ function App() {
             </div>
           )}
           {error && (
-            <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4">
+            <div className="mb-3 sm:mb-4 md:mb-6 bg-red-50 border border-red-200 rounded-xl p-3 sm:p-4">
               <p className="text-red-600 text-sm">{error}</p>
               <button
                 type="button"

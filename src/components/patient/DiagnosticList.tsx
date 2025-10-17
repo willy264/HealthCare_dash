@@ -6,12 +6,12 @@ interface DiagnosticListProps {
 
 const DiagnosticList = ({ diagnosticList }: DiagnosticListProps) => {
   return (
-    <div className="bg-white rounded-2xl p-5 h-[380px] relative flex flex-col">
-      <h2 className="text-[#072635] font-extrabold text-2xl leading-[33px] mb-10">
+    <div className="bg-white rounded-2xl p-3 sm:p-5 h-[320px] sm:h-[380px] relative flex flex-col">
+      <h2 className="text-[#072635] font-extrabold text-xl sm:text-2xl leading-[33px] mb-4 sm:mb-10">
         Diagnostic List
       </h2>
 
-      <div className="rounded-xl custom-scrollbar overflow-y-auto">
+      <div className="rounded-xl custom-scrollbar overflow-y-auto -mx-3 sm:mx-0">
         <table className="w-full">
           <thead className="bg-[#F6F6F6] sticky top-0">
             <tr>
