@@ -8,11 +8,11 @@ interface LabResultsProps {
 const LabResults = ({ labResults }: LabResultsProps) => {
   return (
     <div className="bg-white rounded-2xl h-[250px] sm:h-[290px] relative flex flex-col">
-      <h2 className="text-[#072635] font-extrabold text-xl sm:text-2xl leading-[33px] p-4 sm:p-5 pb-0">
+      <h2 className="text-[#072635] font-extrabold text-xl sm:text-2xl leading-[33px] p-4 sm:p-5 sm:px-3">
         Lab Results
       </h2>
 
-      <div className="space-y-0 overflow-y-auto overflow-x-hidden custom-scrollbar p-4">
+      <div className="space-y-0 overflow-y-auto overflow-x-hidden custom-scrollbar p-4 px-5 pt-0">
         {labResults.map((result, index) => (
           <div
             key={index}
