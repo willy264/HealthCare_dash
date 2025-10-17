@@ -55,11 +55,6 @@ export interface DiagnosisListItem {
   status: string;
 }
 
-export interface LabResult {
-  name: string;
-  description: string;
-}
-
 export interface PatientRecord {
   name: string;
   gender: string;
@@ -71,5 +66,5 @@ export interface PatientRecord {
   insurance_type: string;
   diagnosis_history: DiagnosisHistory[];
   diagnostic_list: DiagnosisListItem[];
-  lab_results: LabResult[];
+  lab_results: [];
 }

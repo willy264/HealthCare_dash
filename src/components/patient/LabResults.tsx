@@ -1,8 +1,8 @@
 import { Download } from "lucide-react";
-import type { LabResult } from "../../types";
+import type { PatientRecord } from "../../types";
 
 interface LabResultsProps {
-  labResults: LabResult[];
+  labResults: PatientRecord["lab_results"];
 }
 
 const LabResults = ({ labResults }: LabResultsProps) => {
@@ -16,10 +16,10 @@ const LabResults = ({ labResults }: LabResultsProps) => {
         {labResults.map((result, index) => (
           <div
             key={index}
-            className="flex items-center justify-between py-4 hover:bg-[#F6F6F6] px-3 -mx-3  transition-colors cursor-pointer"
+            className="flex items-center justify-between py-4 hover:bg-[#F6F6F6] px-3 -mx-3 transition-colors cursor-pointer text-black"
           >
             <span className="text-[#072635] text-sm leading-[19px]">
-              {result.name}
+              {result}
             </span>
             <button
               type="button"
