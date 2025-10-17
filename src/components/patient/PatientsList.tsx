@@ -13,9 +13,10 @@ const PatientsList = ({
   onSelectPatient,
 }: PatientsListProps) => {
   return (
-    <div className="bg-white rounded-2xl p-5 flex flex-col h-[calc(100vh-180px)] md:h-[calc(100vh-140px)]">
+    // h-[calc(100vh-180px)] md:h-[calc(100vh-140px)]
+    <div className="bg-white rounded-2xl  flex flex-col h-[calc(100vh-40px)]">
       {/* header */}
-      <div className="flex items-center justify-between mb-6 sticky top-0 bg-white z-10">
+      <div className="flex items-center justify-between mb-6 p-5">
         <h2 className="text-[#072635] font-extrabold text-2xl leading-[33px]">
           Patients
         </h2>
@@ -29,13 +30,13 @@ const PatientsList = ({
       </div>
 
       {/* patients list */}
-      <div className="flex-1 overflow-y-auto space-y-1 -mr-2 pr-2 custom-scrollbar">
+      <div className="flex-1 overflow-y-auto space-y-1 pr-0.5 custom-scrollbar">
         {patients.map((patient, index) => (
           <button
             type="button"
             key={index}
             onClick={() => onSelectPatient(patient)}
-            className={`w-full flex items-center justify-between p-4 rounded-xl transition-all ${
+            className={`w-full flex items-center justify-between p-4 transition-all ${
               selectedPatient.name === patient.name
                 ? "bg-[#D8FCF7]"
                 : "hover:bg-gray-50"

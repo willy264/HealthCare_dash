@@ -3,6 +3,11 @@ import "./App.css";
 import type { PatientRecord } from "./types";
 import { fetchPatientData } from "./services/api";
 import Header from "./components/layout/Header";
+import PatientInfo from "./components/patient/PatientInfo";
+import BloodPressureChart from "./components/patient/BloodPressureChart";
+import VitalSigns from "./components/patient/VitalSigns";
+import DiagnosticList from "./components/patient/DiagnosticList";
+import LabResults from "./components/patient/LabResults";
 import PatientsList from "./components/patient/PatientsList";
 
 function App() {
@@ -28,6 +33,8 @@ function App() {
           (p) => p.name === "Jessica Taylor"
         );
         setSelectedPatient(jessicaTaylor || allPatientsData[0] || null);
+        console.log(patientsData);
+        
       } catch (err) {
         console.error("Error details:", err);
         setError(
@@ -41,49 +48,81 @@ function App() {
     loadPatientData();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-[#F6F6F6]">
-        <div className="text-[#072635] text-lg">Loading...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-[#F6F6F6]">
-        <div className="text-red-600 text-center">
-          <p className="text-xl font-bold mb-2">Error</p>
-          <p>{error}</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!selectedPatient) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-[#F6F6F6]">
-        <div className="text-[#072635]">No patient data available</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-[#F6F6F6] space-y-6 px-4 sm:px-6 lg:px-8 py-6">
-      <Header />
-      <main className="mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-4 lg:gap-8">
-          <div className="md:col-span-3 lg:col-span-3">
-            <PatientsList
-              patients={patientsData}
-              selectedPatient={selectedPatient!}
-              onSelectPatient={setSelectedPatient}
-            />
+    <div className="bg-[#F6F6F6] flex flex-col min-h-screen">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 flex-1">
+        <Header />
+        <main className="mx-auto mt-6">
+          {loading && (
+            <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex items-center justify-center z-50">
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-[#072635] text-lg">Loading...</div>
+              </div>
+            </div>
+          )}
+          {error && (
+            <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4">
+              <p className="text-red-600 text-sm">{error}</p>
+              <button
+                type="button"
+                onClick={() => window.location.reload()}
+                className="mt-2 text-sm text-red-600 hover:text-red-700 font-medium"
+              >
+                Try Again
+              </button>
+            </div>
+          )}
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 lg:col-span-3">
+              <PatientsList
+                patients={patientsData}
+                selectedPatient={
+                  selectedPatient || patientsData[0] || ({} as PatientRecord)
+                }
+                onSelectPatient={setSelectedPatient}
+              />
+            </div>
+
+            <div className="col-span-12 lg:col-span-6 space-y-6">
+              <div className="bg-white rounded-2xl p-6">
+                <BloodPressureChart
+                  diagnosisHistory={selectedPatient?.diagnosis_history || []}
+                />
+                <div className="mt-8">
+                  <VitalSigns
+                    latestVitals={
+                      selectedPatient?.diagnosis_history?.[0] || {
+                        respiratory_rate: { value: 0, levels: "Normal" },
+                        temperature: { value: 0, levels: "Normal" },
+                        heart_rate: { value: 0, levels: "Normal" },
+                      }
+                    }
+                  />
+                </div>
+              </div>
+              <DiagnosticList
+                diagnosticList={selectedPatient?.diagnostic_list || []}
+              />
+            </div>
+
+            <div className="col-span-12 lg:col-span-3 space-y-6">
+              <PatientInfo
+                patient={{
+                  name: selectedPatient?.name || "No Patient Selected",
+                  profile_picture: selectedPatient?.profile_picture || "",
+                  age: selectedPatient?.age || 0,
+                  gender: selectedPatient?.gender || "",
+                  date_of_birth: selectedPatient?.date_of_birth || "",
+                  phone_number: selectedPatient?.phone_number || "",
+                  emergency_contact: selectedPatient?.emergency_contact || "",
+                  insurance_type: selectedPatient?.insurance_type || "",
+                }}
+              />
+              <LabResults labResults={selectedPatient?.lab_results || []} />
+            </div>
           </div>
-
-
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
