@@ -20,7 +20,7 @@ const Header = () => {
     <header className="bg-white shadow-sm rounded-2xl">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between lg:h-[72px]">
-          {/* Logo */}
+          {/* logo */}
           <div className="flex items-center">
             <div className="w-[211px] h-[48px] flex items-center">
               <img
@@ -119,11 +119,10 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* mobile menu */}
         {isMobileMenuOpen && (
           <nav className="xl:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
             <div className="flex flex-col gap-2">
-              {/* Profile section - mobile */}
               <div className="flex lg:hidden items-center gap-3 p-4 mb-2 bg-white rounded-lg">
                 <img
                   src={DoctorImage}

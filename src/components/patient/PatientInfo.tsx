@@ -45,7 +45,7 @@ const PatientInfo = ({ patient }: PatientInfoProps) => {
       </div>
 
       {/* patient details */}
-      <div className="space-y-5 flex lg:flex-col gap-8 flex-wrap">
+      <div className="space-y-5 flex lg:flex-col gap-8 lg:gap-5 max-lg:flex-wrap">
         {/* date of birth */}
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-[#F6F6F6] flex items-center justify-center flex-shrink-0">
@@ -120,7 +120,6 @@ const PatientInfo = ({ patient }: PatientInfoProps) => {
         </div>
       </div>
 
-      {/* show all information button */}
       <button
         type="button"
         className="w-full mt-10 bg-[#01F0D0] hover:bg-[#00D4B5] transition-colors text-[#072635] font-bold text-sm leading-[19px] py-3 px-6 rounded-full"

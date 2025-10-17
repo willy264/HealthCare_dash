@@ -72,7 +72,6 @@ function App() {
             </div>
           )}
           <div className="grid grid-cols-12 gap-4 xl:gap-6">
-            {/* Patients List - Full width on mobile, side column on desktop */}
             <div className="col-span-12 lg:col-span-3 order-1">
               <PatientsList
                 patients={patientsData}
@@ -83,7 +82,6 @@ function App() {
               />
             </div>
 
-            {/* Patient Info and Lab Results - Full width on mobile, side column on desktop */}
             <div className="col-span-12 lg:col-span-3 space-y-6 order-2 lg:order-3">
               <PatientInfo
                 patient={{
@@ -100,7 +98,6 @@ function App() {
               <LabResults labResults={selectedPatient?.lab_results || []} />
             </div>
 
-            {/* Charts and Diagnostic List - Full width on mobile, center column on desktop */}
             <div className="col-span-12 lg:col-span-6 space-y-6 order-3 lg:order-2">
               <div className="bg-white rounded-2xl p-6">
                 <BloodPressureChart
